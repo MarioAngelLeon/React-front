@@ -1,0 +1,110 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #040505;
+	background: #f2f4f6; 
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+h1 {
+	font-size: 2.3em;
+	line-height: 1.3em;
+	margin: 15px 0;
+	text-align: center;
+	font-weight: 300;
+}
+
+p {
+	margin: 0 0 1.5em 0;
+}
+
+img {
+	max-width: 100%;
+	height: 100%;
+}
+
+button {
+  background-color: #8e1f4c;
+  color: rgb(255, 255, 255);
+  font-family: 'Roboto', sans-serif;
+  border-radius: 8px;
+  border-style: none;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#buttonConsult {
+    background-color: #8e1f4c;
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+    border-radius: 8px;
+    border-style: none;
+    text-decoration: none;
+    padding: 1px;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+#main-header {
+    background: #f2f4f6;
+	height: 100px;
+}	
+
+#main-header a {
+    color: #515b62;
+    font-family: 'Roboto', sans-serif;
+}
+
+#line-header {
+	background: #8e1f4c; 
+	height: 10px;
+}	
+/*
+ * Logo
+ */
+#logo-header {
+	float: left;
+	padding: 10px 0 0 100px;
+	text-decoration: none;
+}
+/*
+ * Navegación
+ */
+nav {
+	float: right;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-right: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+}
+        
+nav ul li a {
+    display: block;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+#main-content {
+    background: rgb(255, 255, 255);
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+    border-radius: 8px;
+}
+
+#main-content header,
+#main-content .content {
+    padding: 20px;
+}
