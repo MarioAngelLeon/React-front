@@ -24,7 +24,6 @@ export default function Usuario() {
     let days = new Date(fecha)
     days.setDate(days.getDate())
     const resultl = days.toISOString().split('T')[0]
-    console.log(fecha)
     return resultl
   }
 
@@ -47,7 +46,7 @@ export default function Usuario() {
       <section id="main-content">
         <article>
           <div class="content">
-            <h1>Bienvenido Tal...</h1>
+            <h1>{!todos ? '' : `Bienvenido ${todos.user.firstName} ${todos.user.lastName}`}</h1>
             <form class="row g-3 needs-validation" novalidate>
               <div class="col-md-4">
                 <label for="validationCustom01" class="form-label">
@@ -77,27 +76,30 @@ export default function Usuario() {
               </div>
             </form>
             <br />
-            <p></p>
-            <p></p>
-            {!todos ? (
-              ''
-            ) : (
-              <a href="http://localhost:3000/onboarding">
-                <button type="button">Iniciar proceso</button>
-              </a>
-            )}
             <h2>{!todos ? '' : 'Lista de cuentas'}</h2>
+            <br/>
             <table class="table table-borderless">
+              {!todos ? '' : (
+                <thead>
+                <tr>
+                  <th scope="col">Prestamo</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Monto</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              )}
               <tbody>
                 {!todos
                   ? ''
                   : todos.loans.map((todo, index) => {
                       return (
                         <tr key={index}>
-                          <td>{`Prestamo:  ${todo.id}`}</td>
-                          <td>{`Estado: ${todo.accountState}`}</td>
-                          <td>{`Producto: ${todo.loanName}`}</td>
-                          <td>{`Monto: ${todo.loanAmount}`}</td>
+                          <td>{`${todo.id}`}</td>
+                          <td>{`${todo.accountState}`}</td>
+                          <td>{`${todo.loanName}`}</td>
+                          <td>{`$${todo.loanAmount}`}</td>
                           <td>
                             {!todos ? (
                               ''
@@ -115,9 +117,62 @@ export default function Usuario() {
                               </button>
                             )}
                           </td>
+                          <td>
+                          {!todos ? (
+                                      ''
+                                    ) : (
+                                      <a href="http://localhost:3000/pagos">
+                                        <button id="buttonConsult" type="button">Pagar</button>
+                                      </a>
+                                    )}
+                          </td>
                         </tr>
                       )
                     })}
+              </tbody>
+            </table>
+            <br />
+            <br />
+            <table class="table table-striped">
+              <thead>
+                {!saldos ? '' : (<tr>
+                  <th scope="col"># </th>
+                  <th scope="col">Pendiente</th>
+                  <th scope="col">Capital pendiente</th>
+                  <th scope="col">Interes a pagar</th>
+                  <th scope="col">Cargos a pagar</th>
+                  <th scope="col">Penalizacion pendiente</th>
+                  <th scope="col">Impuestos pendientes</th>
+                  <th scope="col">Total a pagar</th>
+                  <th scope="col">Estado</th>
+                </tr>)}
+              </thead>
+              <tbody>
+              {!saldos ? '': (
+                  saldos.installments.map((saldo, index) => {
+                    return (
+                      <tr key={index}>
+                        <th scope="row">{saldo.number}</th>
+                        <td>{obtenerDia(saldo.dueDate)}</td>
+                        <td>{`$${saldo.principal.amount.expected}`}</td>
+                        <td>{`$${saldo.interest.amount.expected}`}</td>
+                        <td>{`$${saldo.fee.amount.expected}`}</td>
+                        <td>{`$${saldo.fee.tax.expected}`}</td>
+                        <td>{`$${saldo.interest.tax.expected}`}</td>
+                      <td>
+                      {`$${Math.ceil(
+                            parseFloat(saldo.principal.amount.expected, 10) +
+                            parseFloat(saldo.interest.amount.expected, 10) +
+                            parseFloat(saldo.fee.amount.expected, 10) +
+                            parseFloat(saldo.fee.tax.expected, 10) +
+                            parseFloat(saldo.interest.tax.expected, 10)
+                          )}`}
+                        </td>
+                        <td>{saldo.state}</td>
+                      </tr>
+                    )
+                  })
+                )}
               </tbody>
             </table>
           </div>

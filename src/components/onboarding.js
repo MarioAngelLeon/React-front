@@ -35,6 +35,7 @@ export default function Onboarding() {
       0,
       getUTC.length - 2
     )}:00`
+    console.log(result)
     return result
   }
 
@@ -287,7 +288,7 @@ export default function Onboarding() {
                   type="button"
                   onClick={() => {
                     const values = getValues()
-                    const url = `http://127.0.0.1:5000/aprobacion?id_prestamo=${todos.id}&clabe=${todos.clabe}&fecha=${values.desembolso}`
+                    const url = `http://127.0.0.1:5000/aprobacion?id_prestamo=${todos.id}&clabe=${todos.clabe}&fecha=${calcularDia(values.desembolso)}`
                     console.log(url)
                     consumeApiAprobacion(url)
                   }}

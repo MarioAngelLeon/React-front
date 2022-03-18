@@ -12,85 +12,112 @@ export default function Pagos() {
     setTodos(response.data)
   }
 
+  const imagen =
+    'https://solicitaloahora.financieramontedepiedad.com.mx/images/brand/financiera_monte_de_piedad_logo.png'
+
+
   return (
     <div>
-      <br />
-      <p class="h1">Generar pagos</p>
-      <br />
-      <form class="row g-3 needs-validation" novalidate>
-        <div class="col-md-4">
-          <label for="validationCustom01" class="form-label">
-            ID del prestamo
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            id="validationCustom01"
-            required
-            {...register('id')}
-          />
-        </div>
-        <div class="col-md-4">
-          <label for="validationCustom01" class="form-label">
-            Monto
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            id="validationCustom01"
-            required
-            {...register('monto')}
-          />
-        </div>
-        <div class="col-12">
-          <button
-            class="btn btn-primary"
-            type="button"
-            onClick={() => {
-              const values = getValues()
-              console.log(values)
-              const url = `http://127.0.0.1:5000/pagos?monto=${values.monto}&id=${values.id}`
-              console.log(url)
-              consumeApi(url)
-            }}
-          >
-            Registrar
-          </button>
-        </div>
-      </form>
-      <br />
-      <div class="card">
-        <div class="card-header">Resultado</div>
-        <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>{!todos ? '' : `ID de transaccion:  ${todos.id}`}</p>
-            <p>
-              {!todos
-                ? ''
-                : `Canal de desembolso: ${todos.transactionDetails.transactionChannelId}`}
-            </p>
-            <p>{!todos ? '' : `Monto del pago: $${todos.amount}`}</p>
-            <p>
-              {!todos
-                ? ''
-                : `Fecha de operacion ${new Date(
-                    todos.valueDate
-                  ).toDateString()}`}
-            </p>
-            <p>
-              {!todos
-                ? ''
-                : `Fecha de registro contable: ${new Date(
-                    todos.bookingDate
-                  ).toDateString()}`}
-            </p>
+      <header id="main-header">
+        <img id="logo-header" src={`${imagen}`} />
+        <nav>
+          <ul>
+            <li>
+              <p>Inicio</p>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <header id="line-header"></header>
+      <section id="main-content">
+        <article>
+          <header>
+            <h1>Pagos online</h1>
+          </header>
+          <div class="content">
+            <form class="row g-3 needs-validation" novalidate>
+              <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">
+                Nombre del beneficiario
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  required
+                  {...register('clientFullName')}
+                />
+              </div>
+              <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">
+                  Monto
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  required
+                  {...register('monto')}
+                />
+              </div>
+              <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">
+                Fecha de operacion 
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  required
+                  {...register('fechaoperacion')}
+                />
+              </div>
+              <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">
+                Cuenta clabe
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  required
+                  {...register('clientCLABE')}
+                />
+              </div>
+              <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">
+                  Referencia de pago
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  required
+                  {...register('referencianumerica')}
+                />
+              </div>
+              <div class="col-12">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const values = getValues()
+                    console.log(values)
+                    const fechaSalida = values.fechaoperacion
+                    console.log(fechaSalida.replaceAll('-', ''))
+                    const url = `http://127.0.0.1:5000/pagos-online?clientFullName=${values.clientFullName}&monto=${values.monto}&fechaoperacion=${fechaSalida.replaceAll('-', '')}&clientCLABE=${values.clientCLABE}&referencianumerica=${values.referencianumerica}`
+                    console.log(url)
+                    consumeApi(url)
+                  }}
+                >
+                  Realizar pago
+                </button>
+              </div>
+            </form>
             <br />
-            <footer class="blockquote-footer">
-              {!todos ? '' : `>Estado del prestamo: ${todos.type}`}
-            </footer>
-          </blockquote>
-        </div>
-      </div>
+            <h3>{!todos ? '' : 'Operacion realizada'}</h3>
+          </div>
+        </article>
+      </section>
     </div>
   )
 }
