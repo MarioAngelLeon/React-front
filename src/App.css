@@ -44,7 +44,19 @@ button {
     border-radius: 8px;
     border-style: none;
     text-decoration: none;
-    padding: 1px;
+    padding: 2px;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+#buttonPayment {
+    background-color: #8e1f4c;
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+    border-radius: 8px;
+    border-style: none;
+    text-decoration: none;
+    padding: 3px;
     font-weight: 100;
     font-size: 12px;
 }

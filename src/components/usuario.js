@@ -46,7 +46,6 @@ export default function Usuario() {
       <section id="main-content">
         <article>
           <div class="content">
-            <h1>{!todos ? '' : `Bienvenido ${todos.user.firstName} ${todos.user.lastName}`}</h1>
             <form class="row g-3 needs-validation" novalidate>
               <div class="col-md-4">
                 <label for="validationCustom01" class="form-label">
@@ -75,6 +74,18 @@ export default function Usuario() {
                 </button>
               </div>
             </form>
+            <br/>
+            {!todos ? '' : (<div class="card">
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <h2>{`Bienvenido ${todos.user.firstName} ${todos.user.lastName} ${todos.user.materno}`}</h2>
+                  <p></p>
+                  <p><b>Correo electrónico: </b>{todos.user.emailAddress}</p>
+                  <p><b>Teléfono: </b>{todos.user.mobilePhone}</p>
+                  <p><b>Cuenta clabe: </b>{todos.user.clabe}</p>
+                </blockquote>
+              </div>
+            </div>)}
             <br />
             <h2>{!todos ? '' : 'Lista de cuentas'}</h2>
             <br/>
@@ -122,7 +133,7 @@ export default function Usuario() {
                                       ''
                                     ) : (
                                       <a href="http://localhost:3000/pagos">
-                                        <button id="buttonConsult" type="button">Pagar</button>
+                                        <button id="buttonPayment" type="button">Pagar</button>
                                       </a>
                                     )}
                           </td>
@@ -154,18 +165,18 @@ export default function Usuario() {
                       <tr key={index}>
                         <th scope="row">{saldo.number}</th>
                         <td>{obtenerDia(saldo.dueDate)}</td>
-                        <td>{`$${saldo.principal.amount.expected}`}</td>
-                        <td>{`$${saldo.interest.amount.expected}`}</td>
-                        <td>{`$${saldo.fee.amount.expected}`}</td>
-                        <td>{`$${saldo.fee.tax.expected}`}</td>
-                        <td>{`$${saldo.interest.tax.expected}`}</td>
+                        <td>{`$${saldo.principal.amount.due}`}</td>
+                        <td>{`$${saldo.interest.amount.due}`}</td>
+                        <td>{`$${saldo.fee.amount.due}`}</td>
+                        <td>{`$${saldo.fee.tax.due}`}</td>
+                        <td>{`$${saldo.interest.tax.due}`}</td>
                       <td>
                       {`$${Math.ceil(
-                            parseFloat(saldo.principal.amount.expected, 10) +
-                            parseFloat(saldo.interest.amount.expected, 10) +
-                            parseFloat(saldo.fee.amount.expected, 10) +
-                            parseFloat(saldo.fee.tax.expected, 10) +
-                            parseFloat(saldo.interest.tax.expected, 10)
+                            parseFloat(saldo.principal.amount.due, 10) +
+                            parseFloat(saldo.interest.amount.due, 10) +
+                            parseFloat(saldo.fee.amount.due, 10) +
+                            parseFloat(saldo.fee.tax.due, 10) +
+                            parseFloat(saldo.interest.tax.due, 10)
                           )}`}
                         </td>
                         <td>{saldo.state}</td>
