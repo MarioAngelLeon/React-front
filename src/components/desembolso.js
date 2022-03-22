@@ -82,7 +82,7 @@ export default function Desmbolso() {
                   <footer class="blockquote-footer">
                     {!todos
                       ? ''
-                      : `ID en PTS:  ${todos.messageRS.response[0].PTSId}`}
+                      : `ID de rastreo:  ${todos.messageRS.response[0].PTSId}`}
                   </footer>
                 </blockquote>
               </div>

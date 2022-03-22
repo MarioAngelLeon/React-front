@@ -39,6 +39,13 @@ export default function Onboarding() {
     return result
   }
 
+  function diaHoy() {
+    let days = new Date()
+    days.setDate(days.getDate())
+    const result = `${days.toJSON().split('T')[0]}`
+    return result
+  }
+
   const imagen =
     'https://solicitaloahora.financieramontedepiedad.com.mx/images/brand/financiera_monte_de_piedad_logo.png'
 
@@ -62,6 +69,18 @@ export default function Onboarding() {
           </header>
           <div class="content">
             <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4">
+                <label for="validationCustom17" class="form-label">
+                  ID
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom17"
+                  required
+                  {...register('idcliente')}
+                />
+              </div>
               <div class="col-md-4">
                 <label for="validationCustom01" class="form-label">
                   Nombre
@@ -226,6 +245,7 @@ export default function Onboarding() {
                   type="text"
                   class="form-control"
                   id="validationCustom15"
+                  value={diaHoy()}
                   required
                   {...register('desembolso')}
                 />
@@ -264,7 +284,7 @@ export default function Onboarding() {
                       values.desembolso
                     )}&primer_pago=${
                       !values.primer_pago ? '' : calcularDia(values.primer_pago)
-                    }`
+                    }&idcliente=${values.idcliente}`
                     console.log(url)
                     consumeApi(url)
                   }}

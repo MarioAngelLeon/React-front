@@ -132,7 +132,7 @@ export default function Usuario() {
                           {!todos ? (
                                       ''
                                     ) : (
-                                      <a href="http://localhost:3000/pagos">
+                                      <a href={`http://localhost:3000/pagos?nombre=${todos.user.firstName} ${todos.user.lastName} ${todos.user.materno}&clabe=${todos.user.clabe}`}>
                                         <button id="buttonPayment" type="button">Pagar</button>
                                       </a>
                                     )}

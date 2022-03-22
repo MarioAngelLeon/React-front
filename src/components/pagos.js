@@ -4,12 +4,26 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 export default function Pagos() {
+  const params = new URLSearchParams(window.location.search)
+  const value_nombre = params.get('nombre')
+  console.log(`ID cuenta: ${value_nombre}`)
+  const value_clabe = params.get('clabe')
+  console.log(`Monto: ${value_clabe}`)
+
   const { register, getValues } = useForm()
   const [todos, setTodos] = useState()
+  
   const consumeApi = async (URL) => {
     const response = await axios.get(URL)
     console.log(response.data)
     setTodos(response.data)
+  }
+
+  function diaHoy() {
+    let days = new Date()
+    days.setDate(days.getDate())
+    const result = `${days.toJSON().split('T')[0]}`
+    return result
   }
 
   const imagen =
@@ -44,6 +58,7 @@ export default function Pagos() {
                   type="text"
                   class="form-control"
                   id="validationCustom01"
+                  value={value_nombre}
                   required
                   {...register('clientFullName')}
                 />
@@ -68,6 +83,7 @@ export default function Pagos() {
                   type="text"
                   class="form-control"
                   id="validationCustom01"
+                  value={diaHoy()}
                   required
                   {...register('fechaoperacion')}
                 />
@@ -80,6 +96,7 @@ export default function Pagos() {
                   type="text"
                   class="form-control"
                   id="validationCustom01"
+                  value={value_clabe}
                   required
                   {...register('clientCLABE')}
                 />
@@ -115,6 +132,14 @@ export default function Pagos() {
             </form>
             <br />
             <h3>{!todos ? '' : 'Operacion realizada'}</h3>
+            <br/>
+            {!todos ? (
+                        ''
+                      ) : (
+                        <a href={`http://localhost:3000/usuario`}>
+                          <button type="button">Regresar</button>
+                        </a>
+                      )}
           </div>
         </article>
       </section>
