@@ -190,6 +190,18 @@ export default function Onboarding() {
                 />
               </div>
               <div class="col-md-4">
+                <label for="validationCustom08" class="form-label">
+                  Cuenta clabe
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom08"
+                  required
+                  {...register('clabe')}
+                />
+              </div>
+              <div class="col-md-4">
                 <label for="validationCustom11" class="form-label">
                   Monto
                 </label>
@@ -245,7 +257,7 @@ export default function Onboarding() {
                   type="text"
                   class="form-control"
                   id="validationCustom15"
-                  value={diaHoy()}
+                  placeholder={diaHoy()}
                   required
                   {...register('desembolso')}
                 />
@@ -284,7 +296,7 @@ export default function Onboarding() {
                       values.desembolso
                     )}&primer_pago=${
                       !values.primer_pago ? '' : calcularDia(values.primer_pago)
-                    }&idcliente=${values.idcliente}`
+                    }&idcliente=${values.idcliente}&clabe=${values.clabe}`
                     console.log(url)
                     consumeApi(url)
                   }}

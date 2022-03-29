@@ -78,11 +78,10 @@ export default function Usuario() {
             {!todos ? '' : (<div class="card">
               <div class="card-body">
                 <blockquote class="blockquote mb-0">
-                  <h2>{`Bienvenido ${todos.user.firstName} ${todos.user.lastName} ${todos.user.materno}`}</h2>
+                  <h2>{`Bienvenido ${todos.user.firstName} ${todos.user.lastName}`}</h2>
                   <p></p>
                   <p><b>Correo electrónico: </b>{todos.user.emailAddress}</p>
                   <p><b>Teléfono: </b>{todos.user.mobilePhone}</p>
-                  <p><b>Cuenta clabe: </b>{todos.user.clabe}</p>
                 </blockquote>
               </div>
             </div>)}
@@ -95,8 +94,10 @@ export default function Usuario() {
                 <tr>
                   <th scope="col">Prestamo</th>
                   <th scope="col">Estado</th>
-                  <th scope="col">Producto</th>
+                  <th scope="col">Cuotas</th>
                   <th scope="col">Monto</th>
+                  <th scope="col">Atraso</th>
+                  <th scope="col"></th>
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -109,8 +110,9 @@ export default function Usuario() {
                         <tr key={index}>
                           <td>{`${todo.id}`}</td>
                           <td>{`${todo.accountState}`}</td>
-                          <td>{`${todo.loanName}`}</td>
+                          <td>{`${todo.scheduleSettings.repaymentInstallments}`}</td>
                           <td>{`$${todo.loanAmount}`}</td>
+                          <td>{`$${todo.due_mount}`}</td>
                           <td>
                             {!todos ? (
                               ''
@@ -132,7 +134,7 @@ export default function Usuario() {
                           {!todos ? (
                                       ''
                                     ) : (
-                                      <a href={`http://localhost:3000/pagos?nombre=${todos.user.firstName} ${todos.user.lastName} ${todos.user.materno}&clabe=${todos.user.clabe}`}>
+                                      <a href={`http://localhost:3000/pagos?nombre=${todos.user.firstName} ${todos.user.lastName}`}>
                                         <button id="buttonPayment" type="button">Pagar</button>
                                       </a>
                                     )}

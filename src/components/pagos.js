@@ -7,8 +7,6 @@ export default function Pagos() {
   const params = new URLSearchParams(window.location.search)
   const value_nombre = params.get('nombre')
   console.log(`ID cuenta: ${value_nombre}`)
-  const value_clabe = params.get('clabe')
-  console.log(`Monto: ${value_clabe}`)
 
   const { register, getValues } = useForm()
   const [todos, setTodos] = useState()
@@ -96,7 +94,6 @@ export default function Pagos() {
                   type="text"
                   class="form-control"
                   id="validationCustom01"
-                  value={value_clabe}
                   required
                   {...register('clientCLABE')}
                 />
