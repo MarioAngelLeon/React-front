@@ -1,6 +1,6 @@
 # Frontend Demo Negocio
 
-Servicio Rest usando React
+Servicio usando React
 
 ## Comenzando 🚀
 
