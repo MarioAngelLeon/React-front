@@ -6,6 +6,8 @@ import Desmbolso from './components/desembolso'
 import Aprobacion from './components/aprobacion'
 import Pagos from './components/pagos'
 import Usuario from './components/usuario'
+import Reportes from './components/reportes'
+import Explotacion from './components/explotacion'
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/desembolso" element={<Desmbolso />} />
         <Route path="/usuario" element={<Usuario />} />
         <Route path="/pagos" element={<Pagos />} />
+        <Route path="/reportes" element={<Reportes />} />
+        <Route path="/explotacion" element={<Explotacion />} />
       </Routes>
     </BrowserRouter>
   )
