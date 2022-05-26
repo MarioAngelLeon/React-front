@@ -60,7 +60,7 @@ export default function Cliente() {
   return (
     <div>
       <header id="main-header">
-        <img id="logo-header" src={`${imagen}`} />
+        <img id="logo-header" src={`${imagen}`} alt="" />
         <nav>
           <ul>
             <li>
