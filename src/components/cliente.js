@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -28,7 +27,7 @@ export default function Cliente() {
 
   const estructuraCliente = payload => {
       const propertys = payload
-      const { id, nombre, segundo_nombre, apellido_paterno, apellido_materno, telefono, correo, rfc, curp, clabe , banco } =  propertys
+      const { id, nombre, segundo_nombre, apellido_paterno, apellido_materno, telefono, correo, rfc, curp, clabe , banco, tipo_cliente } =  propertys
       const resultado = {
           id,
           firstName: nombre,
@@ -42,7 +41,8 @@ export default function Cliente() {
           'infomacion_bancaria':{
               banco,
               clabe
-          }
+          },
+          tipo_cliente
       }
       return resultado
   }
@@ -209,6 +209,19 @@ export default function Cliente() {
                   required
                   {...register('clabe')}
                 />
+              </div>
+              <div class="col-md-4">
+                <label for="validationCustom09" class="form-label">
+                  Tipo cliente
+                </label>
+                <select class="form-select" 
+                  aria-label="Default select example" 
+                  id="validationCustom08"
+                  {...register("tipo_cliente")}>
+                  <option value="tradicional">Tradicional</option>
+                  <option value="contac center">Contac Center</option>
+                  <option value="digital">Digital</option>
+                  </select>
               </div>
               <div class="col-12">
                 <button
