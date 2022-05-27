@@ -75,146 +75,146 @@ export default function Cliente() {
           <header>
             <h1>Creacion del cliente</h1>
           </header>
-          <div class="content">
+          <div className="content">
             <h3>Falta relacion centro de beneficio con clientes (Vinculacion del prestamo)</h3>
-            <form class="row g-3 needs-validation" novalidate>
-            <div class="col-md-4">
-                <label for="validationCustom17" class="form-label">
+            <form className="row g-3 needs-validation">
+            <div className="col-md-4">
+                <label htmlFor="validationCustom17" className="form-label">
                   ID
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom17"
                   required
                   {...register('id')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom01" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom01" className="form-label">
                   Nombre
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom01"
                   required
                   {...register('nombre')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom10" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom10" className="form-label">
                   Segundo nombre
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom10"
                   required
                   {...register('segundo_nombre')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom02" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom02" className="form-label">
                   Apellido Paterno
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom02"
                   required
                   {...register('apellido_paterno')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom03" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom03" className="form-label">
                   Apellido Materno
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom03"
                   required
                   {...register('apellido_materno')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom04" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom04" className="form-label">
                   Telefono
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom04"
                   required
                   {...register('telefono')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom05" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom05" className="form-label">
                   Correo electronico
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom05"
                   required
                   {...register('correo')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom06" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom06" className="form-label">
                   RFC
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom06"
                   required
                   {...register('rfc')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom07" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom07" className="form-label">
                   CURP
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom07"
                   required
                   {...register('curp')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom08" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom08" className="form-label">
                   Banco
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom08"
                   required
                   {...register('banco')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom08" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom08" className="form-label">
                   Cuenta clabe
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom08"
                   required
                   {...register('clabe')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom09" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom09" className="form-label">
                   Tipo cliente
                 </label>
-                <select class="form-select" 
+                <select className="form-select" 
                   aria-label="Default select example" 
                   id="validationCustom08"
                   {...register("tipo_cliente")}>
@@ -223,7 +223,7 @@ export default function Cliente() {
                   <option value="digital">Digital</option>
                   </select>
               </div>
-              <div class="col-12">
+              <div className="col-12">
                 <button
                   type="button"
                   onClick={() => {

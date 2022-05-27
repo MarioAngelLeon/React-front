@@ -112,7 +112,7 @@ export default function Prestamo() {
           <header>
             <h1>Crear una cuenta de prestamo</h1>
           </header>
-          <div class="content">
+          <div className="content">
           <h3>Seleccionar producto</h3>
           <br />
             <Select
@@ -123,7 +123,7 @@ export default function Prestamo() {
             {!selectedOption ? '': console.log(productos[selectedOption.value].name)}
             <br />
             <h3>Condiciones del crédito</h3>
-            <table class="table table-striped">
+            <table className="table table-striped">
               <thead>
                 <tr>
                   <th scope="col"></th>
@@ -154,86 +154,86 @@ export default function Prestamo() {
               </tbody>
             </table>
             <br />
-            <form class="row g-3 needs-validation">
-            <div class="col-md-4">
-                <label for="validationCustom01" class="form-label">
+            <form className="row g-3 needs-validation">
+            <div className="col-md-4">
+                <label htmlFor="validationCustom01" className="form-label">
                   Identificador del cliente
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom01"
                   placeholder="Esperando informacion"
                   required
                   {...register('idCliente')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom11" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom11" className="form-label">
                   Monto
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom11"
                   placeholder={!selectedOption ? 'Esperando informacion' : `${productos[selectedOption.value].loanAmount.defaultValue}`}
                   required
                   {...register('monto')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom12" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom12" className="form-label">
                   Plazo
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom12"
                   placeholder={!selectedOption ? 'Esperando informacion' : `${productos[selectedOption.value].numInstallments.defaultValue}`}
                   required
                   {...register('plazo')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom14" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom14" className="form-label">
                   Tasa de interes
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom14"
                   placeholder={!selectedOption ? 'Esperando informacion' : `${productos[selectedOption.value].interestRate.defaultValue}`}
                   required
                   {...register('interes')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom15" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom15" className="form-label">
                   Fecha de desembolso
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom15"
                   placeholder={diaHoy()}
                   required
                   {...register('desembolso')}
                 />
               </div>
-              <div class="col-md-4">
-                <label for="validationCustom16" class="form-label">
+              <div className="col-md-4">
+                <label htmlFor="validationCustom16" className="form-label">
                   Fecha de primer pago
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="validationCustom16"
                   placeholder={diaHoy()}
                   required
                   {...register('primer_pago')}
                 />
               </div>
-              <div class="col-12">
+              <div className="col-12">
                 <button
                   type="button"
                   onClick={() => {
@@ -248,12 +248,12 @@ export default function Prestamo() {
             <br />
             <h3>{!prestamo ? '' : 'Informacion del prestamo'}</h3>
             <br />
-            <p><b>{!prestamo ? '' : 'Identificador: '}</b> {!prestamo ? '' : `${prestamo.id}`}</p>
-            <p><b>{!prestamo ? '' : 'Nombre del prestamo: '}</b> {!prestamo ? '' : `${prestamo.loanName}`}</p>
-            <p><b>{!prestamo ? '' : 'Estado del prestamo: '}</b> {!prestamo ? '' : `${prestamo.accountState}`}</p>
+            <p><b>{!prestamo ? '' : 'Identificador: '}</b>{!prestamo ? '' : `${prestamo.id}`}</p>
+            <p><b>{!prestamo ? '' : 'Nombre del prestamo: '}</b>{!prestamo ? '' : `${prestamo.loanName}`}</p>
+            <p><b>{!prestamo ? '' : 'Estado del prestamo: '}</b>{!prestamo ? '' : `${prestamo.accountState}`}</p>
             <br />
             <h3>{!cuotas ? '' : 'Tabla de amortizacion'}</h3>
-            <table class="table table-striped">
+            <table className="table table-striped">
             {!cuotas ? '' : (
               <thead>
                 <tr>
